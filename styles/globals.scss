@@ -1,0 +1,32 @@
+//-------------------------------
+// Global Styles
+//-------------------------------
+// This is the main stylesheet that sets up the global styles and CSS reset.
+// It imports all necessary modules and establishes the base styling for the application.
+
+@use 'sass:map';
+@use 'global' as *;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  font-size: 16px;
+  font-family: $font-primary;
+  background: map.get($colors, white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

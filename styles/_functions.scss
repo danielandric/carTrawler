@@ -1,0 +1,25 @@
+//-------------------------------
+// Utility Functions
+//-------------------------------
+// This file contains SCSS functions that provide a cleaner interface
+// for accessing design tokens and calculating values.
+// These functions help maintain consistency and reduce errors when using design tokens.
+
+@use 'sass:map';
+
+/**
+ * Gets a font size from the design system
+ * @param {String} $key - The font size key (e.g., 'body-s', 'title-l')
+ * @return {String} The corresponding rem value
+ */
+@function fontSize($key) {
+  @return map.get($font-sizes, $key);
+}
+
+@function fontHeight($key) {
+  @return map.get($font-heights, $key);
+}
+
+@function palette($keys...) {
+  @return map.get($color-palette, $keys...);
+}

@@ -1,0 +1,14 @@
+// This is the main entry point for all SCSS modules.
+// It forwards all modules to make them available to any file that imports this module.
+
+// Forward design tokens and theming variables
+@forward 'variables';
+
+// Forward reusable mixins for responsive design and common patterns
+@forward 'mixins';
+
+// Forward utility functions for accessing design tokens
+@forward 'functions';
+
+// Forward common base styles and utilities
+@forward 'common';
