@@ -27,6 +27,7 @@
       "@styles/*": ["styles/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "styles", "*.d.ts"],
+  "exclude": ["**/node_modules", "**/.*/"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
