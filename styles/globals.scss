@@ -4,7 +4,6 @@
 // This is the main stylesheet that sets up the global styles and CSS reset.
 // It imports all necessary modules and establishes the base styling for the application.
 
-@use 'sass:map';
 @use 'global' as *;
 
 html,
@@ -15,9 +14,9 @@ body {
 
 body {
   height: 100%;
-  font-size: 16px;
+  font-size: fontSize(body-l);
   font-family: $font-primary;
-  background: map.get($colors, white);
+  background: getColor(white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

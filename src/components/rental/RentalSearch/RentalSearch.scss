@@ -1,0 +1,73 @@
+@use '@styles/global' as *;
+
+.rental-search {
+  background-color: getColor(white);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  .location-info,
+  .date-info {
+    display: grid;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+
+    @include breakpoint(md, min) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .pickup-location,
+  .return-location {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    div {
+      flex: 1;
+
+      label {
+        display: block;
+        font-size: fontSize(body-s);
+        color: $color-text;
+        margin-bottom: $spacing-xs;
+      }
+
+      h3 {
+        font-size: fontSize(body-l);
+        font-weight: $weight-semibold;
+        color: $color-secondary;
+      }
+    }
+  }
+
+  .pickup-date,
+  .return-date {
+    label {
+      display: block;
+      font-size: fontSize(body-s);
+      color: $color-text;
+      margin-bottom: $spacing-xs;
+    }
+
+    input {
+      width: 100%;
+      padding: $spacing-sm;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      font-size: fontSize(body-m);
+      color: $color-secondary;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+      }
+    }
+  }
+}

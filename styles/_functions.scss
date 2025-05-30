@@ -6,6 +6,7 @@
 // These functions help maintain consistency and reduce errors when using design tokens.
 
 @use 'sass:map';
+@use 'variables' as *;
 
 /**
  * Gets a font size from the design system
@@ -18,6 +19,10 @@
 
 @function fontHeight($key) {
   @return map.get($font-heights, $key);
+}
+
+@function getColor($key) {
+  @return map.get($colors, $key);
 }
 
 @function palette($keys...) {

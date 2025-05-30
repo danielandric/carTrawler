@@ -5,16 +5,20 @@
 // handling breakpoints, and other commonly used style patterns.
 // These mixins help maintain consistent responsive behavior across the application.
 
+@use 'sass:map';
+@use 'sass:meta';
+@use 'variables' as *;
+
 // Default values for breakpoint mixin
 $breakpoint-mixin-name: xs !default;
 $breakpoint-mixin-type: min !default;
 
 @mixin breakpoint($name: $breakpoint-mixin-name, $type: $breakpoint-mixin-type) {
-  @if type-of($name) == string {
-    $breakpoint: map-get($breakpoints, $name);
+  @if meta.type-of($name) == string {
+    $breakpoint: map.get($breakpoints, $name);
 
     @if $breakpoint != null {
-      $width: map-get($breakpoint, width);
+      $width: map.get($breakpoint, width);
 
       @if $type == 'max' {
         $width: $width - 1px;
@@ -26,7 +30,7 @@ $breakpoint-mixin-type: min !default;
     } @else {
       @error "Unknown breakpoint: #{$name}";
     }
-  } @else if type-of($name) == number {
+  } @else if meta.type-of($name) == number {
     $width: $name;
 
     @media only screen and (#{$type}-width: $width) {
