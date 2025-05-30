@@ -1,5 +1,14 @@
 @use '@styles/global' as *;
 
+.legend-container {
+  h1 {
+    font-size: fontSize(title-xl);
+    font-weight: $weight-bold;
+    color: palette(text, secondary);
+    margin-bottom: $spacing-lg;
+  }
+}
+
 .rental-search {
   background-color: getColor(white);
   border-radius: $radius-lg;
@@ -35,14 +44,14 @@
       label {
         display: block;
         font-size: fontSize(body-s);
-        color: $color-text;
+        color: palette(text, primary);
         margin-bottom: $spacing-xs;
       }
 
       h3 {
         font-size: fontSize(body-l);
         font-weight: $weight-semibold;
-        color: $color-secondary;
+        color: palette(text, secondary);
       }
     }
   }
@@ -52,22 +61,8 @@
     label {
       display: block;
       font-size: fontSize(body-s);
-      color: $color-text;
+      color: palette(text, primary);
       margin-bottom: $spacing-xs;
-    }
-
-    input {
-      width: 100%;
-      padding: $spacing-sm;
-      border: 1px solid $color-border;
-      border-radius: $radius-sm;
-      font-size: fontSize(body-m);
-      color: $color-secondary;
-
-      &:focus {
-        outline: none;
-        border-color: $color-primary;
-      }
     }
   }
 }

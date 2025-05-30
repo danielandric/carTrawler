@@ -8,8 +8,6 @@ export default defineConfig({
     alias: {
       '@': '/src',
       '@styles': '/styles',
-      '@components': '/src/components',
-      '@types': '/src/types',
     },
   },
 })

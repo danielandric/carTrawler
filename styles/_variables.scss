@@ -74,6 +74,8 @@ $colors: (
 $color-palette: (
   text: (
     primary: map.get($colors, black),
+    secondary: map.get($colors, pink),
+    disabled: map.get($colors, grey),
   ),
   primary: (
     text: map.get($colors, white),
@@ -87,6 +89,10 @@ $color-palette: (
   disabled: (
     text: map.get($colors, grey),
     background: map.get($colors, greyLight),
+  ),
+  border: (
+    default: map.get($colors, greyLight),
+    focus: map.get($colors, pink),
   ),
 );
 
@@ -135,15 +141,7 @@ $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 $shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 $shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
 
-$color-border: #e0e0e0;
-$color-selected: #f0f0f0;
-$color-primary: map.get($color-palette, primary, background);
-$color-secondary: map.get($color-palette, secondary, text);
-$color-text: map.get($color-palette, text, primary);
-$color-background: map.get($color-palette, primary, background);
-
 $weight-bold: 700;
 $weight-semibold: 600;
-$weight-medium: 500;
 $weight-normal: 400;
 $weight-light: 300;

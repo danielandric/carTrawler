@@ -1,9 +1,0 @@
-@use '@styles/global' as *;
-
-.car-rental {
-  .vendors-container {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-xl;
-  }
-}

@@ -9,16 +9,11 @@
   padding: $spacing-md;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid $color-border;
+  border: 1px solid palette(border, default);
 
   &:hover {
     box-shadow: $shadow-md;
     transform: translateY(-2px);
-  }
-
-  &.selected {
-    background-color: $color-selected;
-    border-color: $color-primary;
   }
 
   .vehicle-image {
@@ -40,7 +35,7 @@
     h3 {
       font-size: fontSize(body-l);
       font-weight: $weight-semibold;
-      color: $color-secondary;
+      color: palette(text, secondary);
       margin-bottom: $spacing-md;
     }
 
@@ -53,7 +48,7 @@
         display: flex;
         align-items: center;
         gap: $spacing-xs;
-        color: $color-text;
+        color: palette(text, primary);
         font-size: fontSize(body-s);
 
         img {
@@ -70,14 +65,14 @@
 
     .currency {
       font-size: fontSize(body-s);
-      color: $color-text;
+      color: palette(text, primary);
       margin-right: $spacing-xs;
     }
 
     .amount {
       font-size: fontSize(body-l);
       font-weight: $weight-bold;
-      color: $color-primary;
+      color: palette(primary, background);
     }
   }
 

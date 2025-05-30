@@ -2,14 +2,11 @@ import type { JSX } from 'react'
 import type { VehicleCardProps } from './types'
 import './VehicleCard.scss'
 
-export const VehicleCard = ({ vehicle, onSelect, isSelected }: VehicleCardProps): JSX.Element => {
+export const VehicleCard = ({ vehicle, vendor, onSelect }: VehicleCardProps): JSX.Element => {
   const { Vehicle, TotalCharge } = vehicle
 
   return (
-    <div
-      className={`vehicle-card ${isSelected ? 'selected' : ''}`}
-      onClick={() => onSelect?.(vehicle)}
-    >
+    <div className='vehicle-card' onClick={() => onSelect?.(vehicle)}>
       <div className='vehicle-image'>
         <img src={Vehicle.PictureURL} alt={Vehicle.VehMakeModel.Name} />
       </div>
@@ -47,6 +44,15 @@ export const VehicleCard = ({ vehicle, onSelect, isSelected }: VehicleCardProps)
           </div>
         </div>
       </div>
+
+      <div className='vendor-header'>
+        <img
+          src={`src/assets/vendors/${vendor.Name.toLowerCase()}.svg`}
+          alt={vendor.Name}
+          className='vendor-logo'
+        />
+      </div>
+
       <div className='vehicle-price'>
         <span className='currency'>{TotalCharge.CurrencyCode}</span>
         <span className='amount'>{TotalCharge.RateTotalAmount}</span>

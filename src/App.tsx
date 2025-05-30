@@ -1,11 +1,7 @@
-import { Dashboard } from '@components/rental/Dashboard'
+import Router from './router'
 
 function App() {
-  return (
-    <div className='app'>
-      <Dashboard />
-    </div>
-  )
+  return <Router />
 }
 
 export default App

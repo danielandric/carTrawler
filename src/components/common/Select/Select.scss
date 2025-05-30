@@ -1,0 +1,20 @@
+@use '@styles/global' as *;
+
+.sort-controls {
+  label {
+    margin-right: $spacing-sm;
+  }
+
+  select {
+    padding: $spacing-xs $spacing-sm;
+    border: 1px solid palette(border, default);
+    border-radius: $radius-sm;
+    font-size: fontSize(body-m);
+    color: palette(text, secondary);
+
+    &:focus {
+      outline: none;
+      border-color: palette(primary, background);
+    }
+  }
+}
