@@ -12,7 +12,7 @@ export const VehicleCard = ({ vehicle }: VehicleCardProps): JSX.Element => {
         <img src={Vehicle.PictureURL} alt={Vehicle.VehMakeModel.Name} />
       </div>
       <div className='vehicle-details'>
-        <Typography className='vehicle-title' variant='subtitle-s' as='h3' color='secondary'>
+        <Typography className='vehicle-title' variant='subtitle-m' as='h3' color='secondary'>
           {Vehicle.VehMakeModel.Name}
         </Typography>
 

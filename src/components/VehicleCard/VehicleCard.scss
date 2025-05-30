@@ -14,16 +14,26 @@
   &:hover {
     box-shadow: $shadow-md;
     transform: translateY(-2px);
+    background: getColor(grey);
   }
 
   .vehicle-title {
     padding-bottom: $spacing-sm;
+
+    @include breakpoint(sm, max) {
+      font-size: fontSize(subtitle-l);
+    }
   }
 
   .vehicle-image {
     width: 100%;
-    height: 160px;
+    height: 220px;
     margin-bottom: $spacing-sm;
+
+    @include breakpoint(sm, min) {
+      width: 100%;
+      height: 160px;
+    }
 
     img {
       width: 100%;
@@ -38,7 +48,7 @@
 
     .vehicle-features {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: $spacing-sm;
 
       @include breakpoint(sm, min) {
@@ -62,7 +72,12 @@
         align-items: center;
         gap: $spacing-xs;
         color: palette(text, primary);
-        font-size: fontSize(body-s);
+
+        @include breakpoint(sm, max) {
+          p {
+            font-size: fontSize(body-m);
+          }
+        }
 
         img {
           width: 16px;
@@ -88,6 +103,10 @@
     .vehicle-price {
       margin-top: $spacing-md;
       text-align: right;
+
+      @include breakpoint(sm, max) {
+        font-size: fontSize(subtitle-l);
+      }
     }
 
     @include breakpoint(xl, min) {
