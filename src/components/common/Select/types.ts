@@ -8,4 +8,5 @@ export interface SelectProps<T extends string | number> {
   value: T
   options: SelectOption<T>[]
   handleChange: (event: React.ChangeEvent<HTMLSelectElement> & { target: { value: T } }) => void
+  className?: string
 }

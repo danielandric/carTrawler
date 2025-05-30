@@ -3,70 +3,77 @@
 .typography {
   font-family: $font-primary;
   color: palette(text, primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 
-  &-body-s {
+  &.typography-color-primary {
+    color: palette(text, primary);
+  }
+
+  &.typography-color-secondary {
+    color: palette(text, secondary);
+  }
+
+  &.body-s {
     font-size: fontSize(body-s);
     line-height: fontHeight(body-s);
     font-weight: $weight-normal;
   }
 
-  &-body-m {
+  &.body-m {
     font-size: fontSize(body-m);
     line-height: fontHeight(body-m);
     font-weight: $weight-normal;
   }
 
-  &-body-l {
+  &.body-l {
     font-size: fontSize(body-l);
     line-height: fontHeight(body-l);
     font-weight: $weight-normal;
   }
 
-  &-subtitle-s {
+  &.subtitle-s {
     font-size: fontSize(subtitle-s);
     line-height: fontHeight(subtitle-s);
     font-weight: $weight-semibold;
   }
 
-  &-subtitle-m {
+  &.subtitle-m {
     font-size: fontSize(subtitle-m);
     line-height: fontHeight(subtitle-m);
     font-weight: $weight-semibold;
   }
 
-  &-subtitle-l {
+  &.subtitle-l {
     font-size: fontSize(subtitle-l);
     line-height: fontHeight(subtitle-l);
     font-weight: $weight-semibold;
   }
 
-  &-subtitle-xl {
+  &.subtitle-xl {
     font-size: fontSize(subtitle-xl);
     line-height: fontHeight(subtitle-xl);
     font-weight: $weight-semibold;
   }
 
-  &-title-s {
+  &.title-s {
     font-size: fontSize(title-s);
     line-height: fontHeight(title-s);
     font-weight: $weight-bold;
   }
 
-  &-title-m {
+  &.title-m {
     font-size: fontSize(title-m);
     line-height: fontHeight(title-m);
     font-weight: $weight-bold;
   }
 
-  &-title-l {
+  &.title-l {
     font-size: fontSize(title-l);
     line-height: fontHeight(title-l);
     font-weight: $weight-bold;
   }
 
-  &-title-xl {
+  &.title-xl {
     font-size: fontSize(title-xl);
     line-height: fontHeight(title-xl);
     font-weight: $weight-bold;

@@ -3,7 +3,7 @@
 .vehicle-card {
   display: flex;
   flex-direction: column;
-  background-color: getColor(white);
+  gap: $spacing-sm;
   border-radius: $radius-md;
   box-shadow: $shadow-sm;
   padding: $spacing-md;
@@ -16,10 +16,14 @@
     transform: translateY(-2px);
   }
 
+  .vehicle-title {
+    padding-bottom: $spacing-sm;
+  }
+
   .vehicle-image {
     width: 100%;
     height: 160px;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-sm;
 
     img {
       width: 100%;
@@ -32,17 +36,26 @@
   .vehicle-details {
     flex: 1;
 
-    h3 {
-      font-size: fontSize(body-l);
-      font-weight: $weight-semibold;
-      color: palette(text, secondary);
-      margin-bottom: $spacing-md;
-    }
-
     .vehicle-features {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: $spacing-sm;
+
+      @include breakpoint(sm, min) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(md, min) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include breakpoint(xl, min) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(xxl, min) {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       .feature {
         display: flex;
@@ -52,31 +65,39 @@
         font-size: fontSize(body-s);
 
         img {
-          width: 20px;
-          height: 20px;
+          width: 16px;
+          height: 16px;
         }
       }
     }
   }
 
-  .vehicle-price {
-    margin-top: $spacing-md;
-    text-align: right;
+  .vehicle-pricing {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 100%;
 
-    .currency {
-      font-size: fontSize(body-s);
-      color: palette(text, primary);
-      margin-right: $spacing-xs;
+    .vendor-logo {
+      height: 30px;
+      width: auto;
+      align-self: flex-start;
+      margin-top: $spacing-md;
     }
 
-    .amount {
-      font-size: fontSize(body-l);
-      font-weight: $weight-bold;
-      color: palette(primary, background);
+    .vehicle-price {
+      margin-top: $spacing-md;
+      text-align: right;
+    }
+
+    @include breakpoint(xl, min) {
+      .vendor-logo {
+        align-self: flex-end;
+      }
     }
   }
 
-  @include breakpoint(md, min) {
+  @include breakpoint(xl, min) {
     flex-direction: row;
     align-items: center;
     gap: $spacing-lg;
@@ -85,10 +106,6 @@
       width: 200px;
       height: 140px;
       margin-bottom: 0;
-    }
-
-    .vehicle-features {
-      grid-template-columns: repeat(4, 1fr);
     }
 
     .vehicle-price {

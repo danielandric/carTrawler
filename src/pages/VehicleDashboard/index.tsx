@@ -1,26 +1,13 @@
 import { type JSX } from 'react'
 import './VehicleDashboard.scss'
-import ListHeader from '@/features/VehicleList/ListHeader'
-import useVehicleDashboard from './useVehicleDashboard'
-import { VehicleCard } from '@/components/VehicleCard'
+import VehicleListHeader from '@/features/VehicleListHeader'
+import VehicleList from '@/features/VehicleList'
 
-const VehicleDashboard = (): JSX.Element => {
-  const { sortedVehicles, vehRentalCore } = useVehicleDashboard()
-
-  return (
-    <div className='dashboard'>
-      <ListHeader {...vehRentalCore} />
-      <div className='cars-grid'>
-        <div className='car-rental'>
-          <div className='vendors-container'>
-            {sortedVehicles.map(vehicle => (
-              <VehicleCard vehicle={vehicle} vendor={vehicle.Vendor} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+const VehicleDashboard = (): JSX.Element => (
+  <div className='dashboard'>
+    <VehicleListHeader />
+    <VehicleList />
+  </div>
+)
 
 export default VehicleDashboard

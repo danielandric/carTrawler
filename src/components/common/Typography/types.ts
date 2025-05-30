@@ -1,3 +1,5 @@
+import type { JSX, ElementType, ComponentPropsWithoutRef } from 'react'
+
 export enum TypographyVariant {
   BODY_S = 'body-s',
   BODY_M = 'body-m',
@@ -12,9 +14,27 @@ export enum TypographyVariant {
   TITLE_XL = 'title-xl',
 }
 
-export interface TypographyProps {
-  value: string | number
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
+type ElementTagNames =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'a'
+  | 'span'
+  | 'label'
+  | 'strong'
+  | 'em'
+
+export interface TypographyOwnProps<E extends ElementType = ElementTagNames> {
+  children: string | string[] | number | JSX.Element | JSX.Element[]
+  as?: E
   className?: string
-  variant: TypographyVariant
+  color?: 'primary' | 'secondary'
+  variant: `${TypographyVariant}`
 }
+
+export type TypographyProps<E extends ElementType = ElementTagNames> = TypographyOwnProps<E> &
+  Omit<ComponentPropsWithoutRef<E>, keyof TypographyOwnProps<E>>

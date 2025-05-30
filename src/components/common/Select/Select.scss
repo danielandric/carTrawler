@@ -10,11 +10,14 @@
     border: 1px solid palette(border, default);
     border-radius: $radius-sm;
     font-size: fontSize(body-m);
+    font-weight: $weight-bold;
     color: palette(text, secondary);
+    cursor: pointer;
 
+    &:hover,
     &:focus {
       outline: none;
-      border-color: palette(primary, background);
+      border-color: palette(border, focus);
     }
   }
 }

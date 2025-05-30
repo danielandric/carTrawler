@@ -1,8 +1,7 @@
 import type { IVehAvail, IVendor } from '@/types'
 
+type Vehicle = IVehAvail & { Vendor: IVendor }
+
 export interface VehicleCardProps {
-  vehicle: IVehAvail
-  onSelect?: (car: IVehAvail) => void
-  isSelected?: boolean
-  vendor: IVendor
+  vehicle: Vehicle
 }
