@@ -1,8 +1,8 @@
-import type { FC } from 'react'
+import type { JSX } from 'react'
 import type { RentalSearchProps } from './types'
 import './RentalSearch.scss'
 
-export const RentalSearch: FC<RentalSearchProps> = ({ rentalCore, onSearch }) => {
+export const RentalSearch = ({ rentalCore, onSearch }: RentalSearchProps): JSX.Element => {
   return (
     <div className='rental-search'>
       <div className='location-info'>
@@ -10,7 +10,7 @@ export const RentalSearch: FC<RentalSearchProps> = ({ rentalCore, onSearch }) =>
           <img src='src/assets/icons/plane.svg' alt='Pickup' />
           <div>
             <label>Pick-up Location</label>
-            <h3>{rentalCore.PickUpLocation['@Name']}</h3>
+            <h3>{rentalCore.PickUpLocation.Name}</h3>
           </div>
         </div>
 
@@ -18,7 +18,7 @@ export const RentalSearch: FC<RentalSearchProps> = ({ rentalCore, onSearch }) =>
           <img src='src/assets/icons/plane.svg' alt='Return' />
           <div>
             <label>Return Location</label>
-            <h3>{rentalCore.ReturnLocation['@Name']}</h3>
+            <h3>{rentalCore.ReturnLocation.Name}</h3>
           </div>
         </div>
       </div>
@@ -28,11 +28,11 @@ export const RentalSearch: FC<RentalSearchProps> = ({ rentalCore, onSearch }) =>
           <label>Pick-up Date</label>{' '}
           <input
             type='datetime-local'
-            defaultValue={rentalCore['@PickUpDateTime']}
+            defaultValue={rentalCore.PickUpDateTime}
             onChange={e => {
               onSearch?.({
                 pickup: e.target.value,
-                return: rentalCore['@ReturnDateTime'],
+                return: rentalCore.ReturnDateTime,
               })
             }}
           />
@@ -42,10 +42,10 @@ export const RentalSearch: FC<RentalSearchProps> = ({ rentalCore, onSearch }) =>
           <label>Return Date</label>
           <input
             type='datetime-local'
-            defaultValue={rentalCore['@ReturnDateTime']}
+            defaultValue={rentalCore.ReturnDateTime}
             onChange={e => {
               onSearch?.({
-                pickup: rentalCore['@PickUpDateTime'],
+                pickup: rentalCore.PickUpDateTime,
                 return: e.target.value,
               })
             }}

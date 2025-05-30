@@ -1,11 +1,11 @@
-import { type FC, useState, useMemo } from 'react'
+import { type JSX, useState, useMemo } from 'react'
 import type { IVehAvail } from '@/types'
 import mockData from '@/mockData/data.json'
 import { CarRental } from '@components/rental/CarRental'
 import type { ExtendedVehAvail, SortOption } from './types'
 import './Dashboard.scss'
 
-export const Dashboard: FC = () => {
+export const Dashboard = (): JSX.Element => {
   const [selectedCar, setSelectedCar] = useState<ExtendedVehAvail | null>(null)
   const [sortBy, setSortBy] = useState<SortOption>('price-asc')
 
@@ -14,16 +14,16 @@ export const Dashboard: FC = () => {
     const allCars = mockData[0].VehAvailRSCore.VehVendorAvails.flatMap(vendor =>
       vendor.VehAvails.map(car => ({
         ...car,
-        vendorName: vendor.Vendor['@Name'],
-        vendorCode: vendor.Vendor['@Code'],
+        vendorName: vendor.Vendor.Name,
+        vendorCode: vendor.Vendor.Code,
       }))
     )
 
     return allCars.sort((a, b) => {
-      const priceA = parseFloat(a.TotalCharge['@RateTotalAmount'])
-      const priceB = parseFloat(b.TotalCharge['@RateTotalAmount'])
-      const passengersA = parseInt(a.Vehicle['@PassengerQuantity'])
-      const passengersB = parseInt(b.Vehicle['@PassengerQuantity'])
+      const priceA = parseFloat(a.TotalCharge.RateTotalAmount)
+      const priceB = parseFloat(b.TotalCharge.RateTotalAmount)
+      const passengersA = parseInt(a.Vehicle.PassengerQuantity)
+      const passengersB = parseInt(b.Vehicle.PassengerQuantity)
 
       switch (sortBy) {
         case 'price-desc':
@@ -41,8 +41,8 @@ export const Dashboard: FC = () => {
   const handleCarSelect = (car: IVehAvail) => {
     const extendedCar = sortedCars.find(
       sortedCar =>
-        sortedCar.Vehicle['@Code'] === car.Vehicle['@Code'] &&
-        sortedCar.TotalCharge['@RateTotalAmount'] === car.TotalCharge['@RateTotalAmount']
+        sortedCar.Vehicle.Code === car.Vehicle.Code &&
+        sortedCar.TotalCharge.RateTotalAmount === car.TotalCharge.RateTotalAmount
     )
     if (extendedCar) {
       setSelectedCar(extendedCar)
@@ -61,16 +61,14 @@ export const Dashboard: FC = () => {
         <h1>Car Rental Options</h1>
         <div className='rental-details'>
           <div className='location-info'>
-            <strong>Location:</strong> {rentalInfo.PickUpLocation['@Name']}
+            <strong>Location:</strong> {rentalInfo.PickUpLocation.Name}
           </div>
           <div className='date-info'>
             <div>
-              <strong>Pick-up:</strong>{' '}
-              {new Date(rentalInfo['@PickUpDateTime']).toLocaleDateString()}
+              <strong>Pick-up:</strong> {new Date(rentalInfo.PickUpDateTime).toLocaleDateString()}
             </div>
             <div>
-              <strong>Return:</strong>{' '}
-              {new Date(rentalInfo['@ReturnDateTime']).toLocaleDateString()}
+              <strong>Return:</strong> {new Date(rentalInfo.ReturnDateTime).toLocaleDateString()}
             </div>
           </div>
         </div>
@@ -98,8 +96,8 @@ export const Dashboard: FC = () => {
                   VehVendorAvails: [
                     {
                       Vendor: {
-                        '@Code': selectedCar.vendorCode,
-                        '@Name': selectedCar.vendorName,
+                        Code: selectedCar.vendorCode,
+                        Name: selectedCar.vendorName,
                       },
                       VehAvails: [selectedCar],
                     },
@@ -117,8 +115,8 @@ export const Dashboard: FC = () => {
                 ...mockData[0].VehAvailRSCore,
                 VehVendorAvails: sortedCars.map(car => ({
                   Vendor: {
-                    '@Code': car.vendorCode,
-                    '@Name': car.vendorName,
+                    Code: car.vendorCode,
+                    Name: car.vendorName,
                   },
                   VehAvails: [car],
                 })),

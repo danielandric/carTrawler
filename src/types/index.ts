@@ -1,46 +1,46 @@
 export interface ILocation {
-  '@Name': string
+  Name: string
 }
 
 export interface IVehRentalCore {
-  '@PickUpDateTime': string
-  '@ReturnDateTime': string
+  PickUpDateTime: string
+  ReturnDateTime: string
   PickUpLocation: ILocation
   ReturnLocation: ILocation
 }
 
 export interface IVendor {
-  '@Code': string
-  '@Name': string
+  Code: string
+  Name: string
 }
 
 export interface IVehMakeModel {
-  '@Name': string
+  Name: string
 }
 
 export interface IVehicle {
-  '@AirConditionInd': string
-  '@TransmissionType': string
-  '@FuelType': string
-  '@DriveType': string
-  '@PassengerQuantity': string
-  '@BaggageQuantity': string
-  '@Code': string
-  '@CodeContext': string
-  '@DoorCount': string
-  '@Size'?: string
+  AirConditionInd: boolean
+  TransmissionType: string
+  FuelType: string
+  DriveType: string
+  PassengerQuantity: string
+  BaggageQuantity: string
+  Code: string
+  CodeContext: string
+  DoorCount: string
+  Size?: string
   VehMakeModel: IVehMakeModel
   PictureURL: string
 }
 
 export interface ITotalCharge {
-  '@RateTotalAmount': string
-  '@EstimatedTotalAmount': string
-  '@CurrencyCode': string
+  RateTotalAmount: string
+  EstimatedTotalAmount: string
+  CurrencyCode: string
 }
 
 export interface IVehAvail {
-  '@Status': string
+  Status: string
   Vehicle: IVehicle
   TotalCharge: ITotalCharge
 }
