@@ -85,8 +85,7 @@
       overflow: hidden;
       background: linear-gradient(45deg, getColor(grey), #f8f8f8);
       box-shadow: $shadow-xl;
-      position: sticky;
-      top: $spacing-xl;
+      position: relative;
 
       &:before {
         content: '';
@@ -113,8 +112,13 @@
     .features-section {
       .features-header {
         display: flex;
+        flex-direction: column-reverse;
         align-items: center;
         justify-content: space-between;
+
+        @include breakpoint(md, min) {
+          flex-direction: row;
+        }
       }
 
       .section-title {
