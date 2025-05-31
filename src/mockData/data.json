@@ -19,6 +19,7 @@
           },
           "VehAvails": [
             {
+              "id": "374c7f4a-0b61-4438-9d7c-1b49197248d7",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -42,6 +43,7 @@
               }
             },
             {
+              "id": "7c97db6f-8577-4a6d-85f9-36d974c95812",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -73,6 +75,7 @@
           },
           "VehAvails": [
             {
+              "id": "ea3c3973-76fc-4552-816c-55713a1f53f2",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -96,6 +99,7 @@
               }
             },
             {
+              "id": "b18a1c7c-f1b3-4299-b02d-eb31c8234f7d",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -119,6 +123,7 @@
               }
             },
             {
+              "id": "d4b7c841-7f8b-4e6a-9758-054d27d32c5a",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -142,6 +147,7 @@
               }
             },
             {
+              "id": "f2c76d69-f346-4cf6-9849-71bd6e8e96d5",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -165,6 +171,7 @@
               }
             },
             {
+              "id": "91a93f43-d18b-4498-9f65-194560d919c9",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -197,6 +204,7 @@
           },
           "VehAvails": [
             {
+              "id": "c5b6e331-844e-4c3e-94bc-9c01d6bf8bd2",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -221,6 +229,7 @@
               }
             },
             {
+              "id": "33e05dd4-5f3e-4283-b8f7-f24d78ec0468",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,
@@ -244,6 +253,7 @@
               }
             },
             {
+              "id": "e5c6a8db-7fa5-4f0b-9c20-631e7a622839",
               "Status": "Available",
               "Vehicle": {
                 "AirConditionInd": true,

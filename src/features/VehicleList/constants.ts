@@ -18,6 +18,5 @@ export const allVehicles: Vehicle[] = mockData[0].VehAvailRSCore.VehVendorAvails
     vehVendorAvails.VehAvails.map(vehAvail => ({
       ...vehAvail,
       Vendor: vehVendorAvails.Vendor,
-      id: crypto.randomUUID(),
     }))
 )

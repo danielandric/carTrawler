@@ -1,10 +1,10 @@
 import { type JSX } from 'react'
-import './VehicleDashboard.scss'
+import styles from './VehicleDashboard.module.scss'
 import VehicleListHeader from '@/features/VehicleListHeader'
 import VehicleList from '@/features/VehicleList'
 
 const VehicleDashboard = (): JSX.Element => (
-  <div className='dashboard'>
+  <div className={styles['dashboard']}>
     <VehicleListHeader />
     <VehicleList />
   </div>

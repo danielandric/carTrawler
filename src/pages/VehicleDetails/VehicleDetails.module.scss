@@ -1,0 +1,84 @@
+@use '@styles/global' as *;
+
+.details-container {
+  min-height: 100vh;
+  padding: $spacing-xl;
+  background: getColor(grey);
+
+  .details-content {
+    display: grid;
+    gap: $spacing-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-xl;
+    background: getColor(white);
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+
+    @include breakpoint(md, min) {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .vehicle-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: $radius-md;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: getColor(grey);
+      }
+    }
+
+    .vehicle-info {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xl;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: $spacing-lg;
+
+        .vendor-logo {
+          height: 30px;
+          margin-top: $spacing-sm;
+        }
+
+        .price {
+          white-space: nowrap;
+        }
+      }
+
+      .features-grid {
+        display: grid;
+        gap: $spacing-lg;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+        .feature {
+          display: flex;
+          gap: $spacing-md;
+          padding: $spacing-md;
+          border-radius: $radius-md;
+          background: getColor(grey);
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+
+          div {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-xs;
+          }
+        }
+      }
+    }
+  }
+}

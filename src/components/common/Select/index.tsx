@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
 import type { SelectProps } from './types'
-import './Select.scss'
-import Typography from '../Typography'
+import styles from './Select.module.scss'
+import { Typography } from '@/components/common'
 
 const Select = <T extends string | number>({
   label = '',
@@ -9,7 +9,7 @@ const Select = <T extends string | number>({
   options,
   handleChange,
 }: SelectProps<T>): JSX.Element => (
-  <div className='sort-controls'>
+  <div className={styles['sort-controls']}>
     <Typography variant='body-l' as='label' htmlFor='sort'>
       {label}
     </Typography>

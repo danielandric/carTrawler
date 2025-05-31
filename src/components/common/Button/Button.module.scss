@@ -1,0 +1,63 @@
+@use '@styles/global' as *;
+@use 'sass:color';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-md;
+  font-size: fontSize(body-m);
+  font-weight: $weight-semibold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-height: 40px;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &.primary {
+    color: palette(primary, text);
+    background: palette(primary, background);
+    &:hover {
+      background: color.scale(getColor(pink), $lightness: -5%);
+    }
+  }
+
+  &.secondary {
+    color: palette(secondary, text);
+    background: palette(secondary, background);
+    border: 1px solid palette(secondary, border);
+
+    &:hover {
+      background: getColor(grey);
+    }
+  }
+
+  &.disabled {
+    color: palette(text, disabled) !important;
+    background: palette(disabled, background) !important;
+    border-color: transparent !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+  }
+
+  .icon-left,
+  .icon-right {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .content {
+    line-height: 1;
+  }
+}

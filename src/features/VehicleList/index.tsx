@@ -3,7 +3,7 @@ import { VehicleCard } from '@/components/VehicleCard'
 import type { JSX } from 'react'
 import useVehicleList from './useVehicleList'
 import { SORT_BY_OPTIONS } from './constants'
-import './VehicleList.scss'
+import styles from './VehicleList.module.scss'
 
 const VehicleList = (): JSX.Element => {
   const { sortedVehicles, sortBy, handleSortByChange } = useVehicleList()
@@ -17,7 +17,7 @@ const VehicleList = (): JSX.Element => {
         options={SORT_BY_OPTIONS}
       />
 
-      <div className='vehicles-container'>
+      <div className={styles['vehicles-container']}>
         {sortedVehicles.map(vehicle => (
           <VehicleCard key={vehicle.id} vehicle={vehicle} />
         ))}

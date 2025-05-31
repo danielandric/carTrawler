@@ -1,0 +1,17 @@
+@use '@styles/global' as *;
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .main {
+    flex: 1;
+    background: getColor(grey);
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: $spacing-xl;
+    }
+  }
+}

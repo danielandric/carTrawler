@@ -1,0 +1,19 @@
+@use '@styles/global' as *;
+
+.not-found {
+  min-height: 100vh;
+  padding: $spacing-xl;
+  background: getColor(grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-lg;
+  text-align: center;
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    color: palette(text, secondary);
+  }
+}

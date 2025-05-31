@@ -1,4 +1,5 @@
 export enum Routes {
-  VEHICLES = '/',
+  HOME = '/',
+  VEHICLES = '/vehicles',
   VEHICLE_DETAILS = '/vehicles/:id',
 }

@@ -1,23 +1,30 @@
 import type { ElementType, JSX } from 'react'
 import type { TypographyProps } from './types'
 import React from 'react'
-import './Typography.scss'
+import styles from './Typography.module.scss'
 
 const Typography = <E extends ElementType = 'p'>({
   children,
   className,
   variant,
-  as = 'p' as E,
+  as: Component = 'p' as E,
   color = 'primary',
   ...props
 }: TypographyProps<E>): JSX.Element => {
-  const Component = as
+  const combinedClassName = [
+    styles.typography,
+    styles[variant],
+    color && styles[`typography-color-${color}`],
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return React.createElement(
     Component,
     {
       ...props,
-      className: `typography ${variant}${color ? ` typography-color-${color}` : ''}${className ? ` ${className}` : ''}`,
+      className: combinedClassName,
     },
     children
   )
