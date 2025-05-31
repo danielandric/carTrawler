@@ -14,7 +14,10 @@ import snowflakeIcon from '@/assets/icons/snowflake.svg'
 export const VehicleCard = ({ vehicle }: VehicleCardProps): JSX.Element => {
   const { Vehicle, TotalCharge, Vendor } = vehicle
   const { handleVehicleClick } = useVehicleCard(vehicle)
-  const vendorLogo = `/src/assets/vendors/${Vendor.Name.toLowerCase()}.svg`
+  const vendorLogo = new URL(
+    `/src/assets/vendors/${Vendor.Name.toLowerCase()}.svg`,
+    import.meta.url
+  ).href
 
   return (
     <div className={styles['vehicle-card']} onClick={handleVehicleClick}>
