@@ -24,19 +24,14 @@ const VehicleDetails = (): JSX.Element => {
   }
 
   return (
-    <div className={styles['details-container']}>
-      <div className={styles['details-content']}>
-        <div className={styles['vehicle-image']}>
-          <img src={vehicle.Vehicle.PictureURL} alt={vehicle.Vehicle.VehMakeModel.Name} />
-        </div>
-
-        <div className={styles['vehicle-info']}>
-          <div className={styles.header}>
-            <div>
+    <>
+      <div className={styles['hero-section']}>
+        <div className={styles['hero-content']}>
+          <div className={styles['title-section']}>
+            <div className={styles['title-vendor']}>
               <Typography variant='title-xl' as='h1' color='secondary'>
                 {vehicle.Vehicle.VehMakeModel.Name}
               </Typography>
-              <img className={styles['vendor-logo']} src={vendorLogo} alt={vehicle.Vendor.Name} />
             </div>
             <Typography className={styles.price} variant='title-l' color='secondary'>
               {new Intl.NumberFormat('en', {
@@ -45,77 +40,99 @@ const VehicleDetails = (): JSX.Element => {
               }).format(parseFloat(vehicle.TotalCharge.RateTotalAmount))}
             </Typography>
           </div>
+        </div>
+      </div>
 
-          <div className={styles['features-grid']}>
-            <div className={styles.feature}>
-              <img src={transmissionIcon} alt='Transmission' />
-              <div>
-                <Typography variant='body-m'>Transmission:</Typography>
-                <Typography variant='subtitle-s' color='secondary'>
-                  {vehicle.Vehicle.TransmissionType}
-                </Typography>
-              </div>
+      <div className={styles['details-content']}>
+        <div className={styles['content-grid']}>
+          <div className={styles['vehicle-image']}>
+            <img src={vehicle.Vehicle.PictureURL} alt={vehicle.Vehicle.VehMakeModel.Name} />
+          </div>
+
+          <div className={styles['features-section']}>
+            <div className={styles['features-header']}>
+              <Typography
+                variant='title-m'
+                as='h2'
+                color='secondary'
+                className={styles['section-title']}
+              >
+                Vehicle Features
+              </Typography>
+              <img className={styles['vendor-logo']} src={vendorLogo} alt={vehicle.Vendor.Name} />
             </div>
-            <div className={styles.feature}>
-              <img src={fuelIcon} alt='Fuel' />
-              <div>
-                <Typography variant='body-m'>Fuel Type:</Typography>
-                <Typography variant='subtitle-s' color='secondary'>
-                  {vehicle.Vehicle.FuelType}
-                </Typography>
-              </div>
-            </div>
-            <div className={styles.feature}>
-              <img src={personIcon} alt='Passengers' />
-              <div>
-                <Typography variant='body-m'>Passengers:</Typography>
-                <Typography variant='subtitle-s' color='secondary'>
-                  {vehicle.Vehicle.PassengerQuantity}
-                </Typography>
-              </div>
-            </div>
-            <div className={styles.feature}>
-              <img src={bagIcon} alt='Bags' />
-              <div>
-                <Typography variant='body-m'>Bags:</Typography>
-                <Typography variant='subtitle-s' color='secondary'>
-                  {vehicle.Vehicle.BaggageQuantity}
-                </Typography>
-              </div>
-            </div>
-            <div className={styles.feature}>
-              <img src={doorIcon} alt='Doors' />
-              <div>
-                <Typography variant='body-m'>Doors:</Typography>
-                <Typography variant='subtitle-s' color='secondary'>
-                  {vehicle.Vehicle.DoorCount}
-                </Typography>
-              </div>
-            </div>
-            <div className={styles.feature}>
-              <img src={transmissionIcon} alt='Drive Type' />
-              <div>
-                <Typography variant='body-m'>Drive Type:</Typography>
-                <Typography variant='subtitle-s' color='secondary'>
-                  {vehicle.Vehicle.DriveType}
-                </Typography>
-              </div>
-            </div>
-            {vehicle.Vehicle.AirConditionInd && (
+
+            <div className={styles['features-grid']}>
               <div className={styles.feature}>
-                <img src={snowflakeIcon} alt='Air Conditioning' />
+                <img src={transmissionIcon} alt='Transmission' />
                 <div>
-                  <Typography variant='body-m'>Air Conditioning:</Typography>
+                  <Typography variant='body-m'>Transmission</Typography>
                   <Typography variant='subtitle-s' color='secondary'>
-                    {vehicle.Vehicle.AirConditionInd ? 'Yes' : 'No'}
+                    {vehicle.Vehicle.TransmissionType}
                   </Typography>
                 </div>
               </div>
-            )}
+              <div className={styles.feature}>
+                <img src={fuelIcon} alt='Fuel' />
+                <div>
+                  <Typography variant='body-m'>Fuel Type</Typography>
+                  <Typography variant='subtitle-s' color='secondary'>
+                    {vehicle.Vehicle.FuelType}
+                  </Typography>
+                </div>
+              </div>
+              <div className={styles.feature}>
+                <img src={personIcon} alt='Passengers' />
+                <div>
+                  <Typography variant='body-m'>Passengers</Typography>
+                  <Typography variant='subtitle-s' color='secondary'>
+                    {vehicle.Vehicle.PassengerQuantity}
+                  </Typography>
+                </div>
+              </div>
+              <div className={styles.feature}>
+                <img src={bagIcon} alt='Bags' />
+                <div>
+                  <Typography variant='body-m'>Bags</Typography>
+                  <Typography variant='subtitle-s' color='secondary'>
+                    {vehicle.Vehicle.BaggageQuantity}
+                  </Typography>
+                </div>
+              </div>
+              <div className={styles.feature}>
+                <img src={doorIcon} alt='Doors' />
+                <div>
+                  <Typography variant='body-m'>Doors</Typography>
+                  <Typography variant='subtitle-s' color='secondary'>
+                    {vehicle.Vehicle.DoorCount}
+                  </Typography>
+                </div>
+              </div>
+              <div className={styles.feature}>
+                <img src={transmissionIcon} alt='Drive Type' />
+                <div>
+                  <Typography variant='body-m'>Drive Type</Typography>
+                  <Typography variant='subtitle-s' color='secondary'>
+                    {vehicle.Vehicle.DriveType}
+                  </Typography>
+                </div>
+              </div>
+              {vehicle.Vehicle.AirConditionInd && (
+                <div className={styles.feature}>
+                  <img src={snowflakeIcon} alt='Air Conditioning' />
+                  <div>
+                    <Typography variant='body-m'>Air Conditioning</Typography>
+                    <Typography variant='subtitle-s' color='secondary'>
+                      Yes
+                    </Typography>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

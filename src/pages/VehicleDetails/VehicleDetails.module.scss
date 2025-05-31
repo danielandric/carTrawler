@@ -1,56 +1,140 @@
 @use '@styles/global' as *;
 
-.details-container {
-  min-height: 100vh;
-  padding: $spacing-xl;
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, getColor(pink), rgba(230, 53, 111, 0.8));
+  padding: $spacing-xl 0 $spacing-xl * 2;
+  margin-bottom: -$spacing-xl * 2;
+  border-radius: $radius-xl;
 
-  .details-content {
-    display: grid;
-    gap: $spacing-xl;
-    max-width: 1200px;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, getColor(white));
+  }
+
+  .hero-content {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: $spacing-xl;
-    background: getColor(white);
-    border-radius: $radius-lg;
-    box-shadow: $shadow-lg;
+    padding: 0 $spacing-xl;
+    position: relative;
+    z-index: 1;
 
-    @include breakpoint(md, min) {
+    .title-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .title-vendor {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+
+        h1 {
+          color: getColor(white) !important;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .vendor-logo {
+          height: 35px;
+        }
+      }
+
+      .price {
+        font-size: 2.5rem;
+        color: getColor(white) !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.2);
+        padding: $spacing-md $spacing-lg;
+        border-radius: $radius-xl;
+        backdrop-filter: blur(8px);
+      }
+    }
+  }
+}
+
+.details-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 $spacing-xl $spacing-xl;
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    align-items: start;
+    background: getColor(white);
+    border-radius: $radius-xl;
+    box-shadow: $shadow-xl;
+    padding: $spacing-xl;
+    position: relative;
+
+    @include breakpoint(lg, min) {
       grid-template-columns: 1fr 1fr;
-      align-items: start;
+      align-items: center;
     }
 
     .vehicle-image {
       width: 100%;
-      aspect-ratio: 4/3;
-      border-radius: $radius-md;
+      aspect-ratio: 16/9;
+      border-radius: $radius-xl;
       overflow: hidden;
+      background: linear-gradient(45deg, getColor(grey), #f8f8f8);
+      box-shadow: $shadow-xl;
+      position: sticky;
+      top: $spacing-xl;
+
+      &:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, rgba(230, 53, 111, 0.05), rgba(230, 53, 111, 0.1));
+        z-index: 1;
+      }
 
       img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        background: getColor(grey);
+        transition: transform 0.3s ease;
+        position: relative;
+        z-index: 2;
+
+        &:hover {
+          transform: scale(1.02);
+        }
       }
     }
 
-    .vehicle-info {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-xl;
-
-      .header {
+    .features-section {
+      .features-header {
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        align-items: flex-start;
-        gap: $spacing-lg;
+      }
 
-        .vendor-logo {
-          height: 30px;
-          margin-top: $spacing-sm;
-        }
+      .section-title {
+        margin-bottom: $spacing-xl;
+        font-size: 1.75rem;
+        position: relative;
+        background: linear-gradient(45deg, getColor(pink), #ff4081);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 
-        .price {
-          white-space: nowrap;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -$spacing-md;
+          left: 0;
+          width: 60px;
+          height: 3px;
+          background: linear-gradient(to right, getColor(pink), #ff4081);
+          border-radius: $radius-xl;
         }
       }
 
@@ -59,16 +143,33 @@
         gap: $spacing-lg;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
+        @include breakpoint(md, min) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
         .feature {
           display: flex;
-          gap: $spacing-md;
-          padding: $spacing-md;
-          border-radius: $radius-md;
-          background: getColor(grey);
+          gap: $spacing-lg;
+          padding: $spacing-lg;
+          border-radius: $radius-lg;
+          background: linear-gradient(45deg, rgba(230, 53, 111, 0.03), rgba(230, 53, 111, 0.07));
+          border: 1px solid rgba(230, 53, 111, 0.1);
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(230, 53, 111, 0.15);
+            border-color: getColor(pink);
+            background: linear-gradient(45deg, rgba(230, 53, 111, 0.05), rgba(230, 53, 111, 0.1));
+          }
 
           img {
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
+            padding: $spacing-xs;
+            background: getColor(white);
+            border-radius: $radius-md;
+            box-shadow: 0 4px 12px rgba(230, 53, 111, 0.1);
           }
 
           div {
@@ -76,6 +177,21 @@
             flex-direction: column;
             gap: $spacing-xs;
           }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(md, max) {
+  .hero-section {
+    .hero-content {
+      .title-section {
+        flex-direction: column;
+        gap: $spacing-lg;
+
+        .price {
+          font-size: 2rem;
         }
       }
     }
