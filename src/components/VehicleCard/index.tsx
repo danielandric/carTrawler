@@ -2,12 +2,14 @@ import type { JSX } from 'react'
 import type { VehicleCardProps } from './types'
 import './VehicleCard.scss'
 import Typography from '@/components/common/Typography'
+import useVehicleCard from './useVehicleCard'
 
 export const VehicleCard = ({ vehicle }: VehicleCardProps): JSX.Element => {
-  const { Vehicle, TotalCharge } = vehicle
+  const { Vehicle, TotalCharge, Vendor } = vehicle
+  const { handleVehicleClick } = useVehicleCard(vehicle)
 
   return (
-    <div className='vehicle-card'>
+    <div className='vehicle-card' onClick={handleVehicleClick}>
       <div className='vehicle-image'>
         <img src={Vehicle.PictureURL} alt={Vehicle.VehMakeModel.Name} />
       </div>
@@ -59,8 +61,8 @@ export const VehicleCard = ({ vehicle }: VehicleCardProps): JSX.Element => {
         </Typography>
         <img
           className='vendor-logo'
-          src={`src/assets/vendors/${vehicle.Vendor.Name.toLowerCase()}.svg`}
-          alt={vehicle.Vendor.Name}
+          src={`src/assets/vendors/${Vendor.Name.toLowerCase()}.svg`}
+          alt={Vendor.Name}
         />
       </div>
     </div>

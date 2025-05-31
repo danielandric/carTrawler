@@ -1,3 +1,6 @@
+import type { Vehicle } from './types'
+import mockData from '@/mockData/data.json'
+
 export const SORT_FIELD_NAME = 'sortBy'
 
 export enum SORT_BY {
@@ -9,3 +12,12 @@ export const SORT_BY_OPTIONS = [
   { value: SORT_BY.PRICE_ASC, label: 'Price: Low to High' },
   { value: SORT_BY.PRICE_DESC, label: 'Price: High to Low' },
 ]
+
+export const allVehicles: Vehicle[] = mockData[0].VehAvailRSCore.VehVendorAvails.flatMap(
+  vehVendorAvails =>
+    vehVendorAvails.VehAvails.map(vehAvail => ({
+      ...vehAvail,
+      Vendor: vehVendorAvails.Vendor,
+      id: crypto.randomUUID(),
+    }))
+)

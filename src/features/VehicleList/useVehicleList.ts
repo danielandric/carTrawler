@@ -6,9 +6,8 @@ import {
   setUrlSearchParams,
   updateSearchParam,
 } from '@/utils/browserAPI'
-import { SORT_BY, SORT_FIELD_NAME } from '@/features/VehicleList/constants'
-import mockData from '@/mockData/data.json'
-import type { UseVehicleList, SortedVehicle } from './types'
+import { allVehicles, SORT_BY, SORT_FIELD_NAME } from '@/features/VehicleList/constants'
+import type { UseVehicleList } from './types'
 
 const useVehicleList = (): UseVehicleList => {
   const [sortBy, setSortBy] = useState<`${SORT_BY}`>(SORT_BY.PRICE_ASC)
@@ -29,25 +28,12 @@ const useVehicleList = (): UseVehicleList => {
     SORT_BY.PRICE_ASC
 
   const sortedVehicles = useMemo(() => {
-    const allVehicles: SortedVehicle[] = mockData[0].VehAvailRSCore.VehVendorAvails.flatMap(
-      vehVendorAvails =>
-        vehVendorAvails.VehAvails.map(vehAvail => ({
-          ...vehAvail,
-          Vendor: vehVendorAvails.Vendor,
-        }))
-    )
-
     return _sortBy(allVehicles, vehicle => {
       const price = parseFloat(vehicle.TotalCharge.RateTotalAmount)
-      const passengers = parseInt(vehicle.Vehicle.PassengerQuantity)
 
       switch (currentSortBy) {
         case SORT_BY.PRICE_DESC:
           return -price
-        case SORT_BY.PASSENGER_ASC:
-          return passengers
-        case SORT_BY.PASSENGER_DESC:
-          return -passengers
         default:
           return price
       }

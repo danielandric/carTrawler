@@ -19,7 +19,7 @@ const VehicleList = (): JSX.Element => {
 
       <div className='vehicles-container'>
         {sortedVehicles.map(vehicle => (
-          <VehicleCard key='tralellotralala' vehicle={vehicle} />
+          <VehicleCard key={vehicle.id} vehicle={vehicle} />
         ))}
       </div>
     </div>
